@@ -1,0 +1,40 @@
+{
+  "imports": {
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
+    "@hono/hono": "jsr:@hono/hono@^4.6.7",
+    "@hono/vite-dev-server": "npm:@hono/vite-dev-server@^0.16.0",
+    "@types/node": "npm:@types/node@^22.8.1",
+    "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.3",
+    "react": "npm:react@^18.3.1",
+    "react-dom": "npm:react-dom@^18.3.1",
+    "vike": "npm:vike@^0.4.199",
+    "vike-react": "npm:vike-react@^0.5.7",
+    "vite": "npm:vite@^5.4.10",
+    "~server/": "./src/server/"
+  },
+  "tasks": {
+    "dev": "deno run --allow-all --inspect --vendor src/server/main.ts",
+    "start": "deno run --allow-all --vendor --cached-only src/server/main.ts",
+    "check": "deno check src/server/main.ts",
+    "format": "deno fmt src/"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "lib": ["ES2020","dom", "dom.iterable", "dom.asynciterable", "deno.ns"],
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "fmt": {
+    "useTabs": true,
+    "lineWidth": 120,
+    "semiColons": true,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["src/"]
+  }
+}
